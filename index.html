@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LifeDrop — Blood Donor Connect Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="drop">🩸</span> LifeDrop</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="search-results.html">Find Blood</a>
+      <a href="donor.html">Become a Donor</a>
+      <a href="bloodbank.html">Blood Bank Login</a>
+    </div>
+    <div class="nav-cta">
+      <a href="search-results.html" class="btn btn-outline btn-sm">Find Blood</a>
+      <a href="donor.html" class="btn btn-primary btn-sm">Donate Now</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="search-results.html">Find Blood</a>
+    <a href="donor.html">Become a Donor</a>
+    <a href="bloodbank.html">Blood Bank Login</a>
+    <a href="search-results.html" class="btn btn-primary btn-block">Find Blood Now</a>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow">🩸 Real-time Blood Donor Network</span>
+    <h1>Connecting blood seekers with donors &amp; blood banks — instantly.</h1>
+    <p>LifeDrop links people who urgently need blood with nearby donors and blood banks, with live stock data and emergency mode for critical situations.</p>
+    <div class="flex gap-2 mt-3" style="flex-wrap:wrap;">
+      <a href="search-results.html" class="btn btn-light">🔍 Find Blood Now</a>
+      <a href="donor.html" class="btn btn-outline" style="border-color:#fff; color:#fff;">Become a Donor</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num" id="stat-donors">—</div><div class="stat-label">Registered Donors</div></div>
+      <div><div class="stat-num" id="stat-banks">—</div><div class="stat-label">Partner Blood Banks</div></div>
+      <div><div class="stat-num">8</div><div class="stat-label">Blood Groups Tracked</div></div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why LifeDrop</span>
+      <h2>Built for real, multi-user, life-saving use</h2>
+      <p>Not just a static page — every search, registration, and stock update is shared live across all users.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon-circle">🔗</div>
+        <h3>Shared, Live Data</h3>
+        <p>Every donor and blood bank registration is visible to all users — not just the device that registered it.</p>
+      </div>
+      <div class="card">
+        <div class="icon-circle">🛡️</div>
+        <h3>Data Integrity &amp; Security</h3>
+        <p>Proper validation prevents duplicate or fake entries, and contact details are never fully exposed without protection.</p>
+      </div>
+      <div class="card">
+        <div class="icon-circle">📈</div>
+        <h3>Built to Scale</h3>
+        <p>A real backend means LifeDrop can grow — more cities, more users, notifications, and an admin panel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How It Works</span>
+      <h2>Three simple steps to find blood</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card text-center">
+        <div class="icon-circle" style="margin:0 auto 16px;">1️⃣</div>
+        <h3>Search</h3>
+        <p>Enter the blood group, city, and urgency level. Toggle Emergency Mode if it's critical.</p>
+      </div>
+      <div class="card text-center">
+        <div class="icon-circle" style="margin:0 auto 16px;">2️⃣</div>
+        <h3>Match</h3>
+        <p>LifeDrop checks blood bank stock first, then nearby available donors — live from the database.</p>
+      </div>
+      <div class="card text-center">
+        <div class="icon-circle" style="margin:0 auto 16px;">3️⃣</div>
+        <h3>Connect</h3>
+        <p>Get instant results with contact details so you can reach out directly and save time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid-2">
+      <div class="card" style="background: var(--gradient-soft);">
+        <div class="icon-circle">🆘</div>
+        <h3>Need blood urgently?</h3>
+        <p class="mt-1 mb-2">Search by blood group, city, and urgency to find donors and blood banks near you in seconds.</p>
+        <a href="search-results.html" class="btn btn-primary">Search Now</a>
+      </div>
+      <div class="card" style="background: var(--gradient-soft);">
+        <div class="icon-circle">❤️</div>
+        <h3>Want to save lives?</h3>
+        <p class="mt-1 mb-2">Register as a donor, set your availability, and get matched whenever someone nearby needs your blood group.</p>
+        <a href="donor.html" class="btn btn-primary">Become a Donor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">🩸 LifeDrop</div>
+        <p class="footer-about">A full-stack blood donor connect platform built to link blood seekers with nearby donors and blood banks in real time.</p>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="search-results.html">Find Blood</a></li>
+          <li><a href="donor.html">Become a Donor</a></li>
+          <li><a href="bloodbank.html">Blood Bank Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Blood Groups</h4>
+        <ul><li>A+, A-, B+, B-</li><li>O+, O-, AB+, AB-</li></ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li>Frontend: HTML, CSS, JS</li>
+          <li>Backend (in progress): Node.js, Express, MongoDB</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 LifeDrop. Built by Ajay Pratap Singh Rathore as a placement project.</div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.getElementById("stat-donors").textContent = getDonors().length + "+";
+  document.getElementById("stat-banks").textContent = getBloodBanks().length + "+";
+</script>
+</body>
+</html>
