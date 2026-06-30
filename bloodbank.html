@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Donor Portal — LifeDrop</title>
+<title>Blood Bank Portal — LifeDrop</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css" />
@@ -16,8 +16,8 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="search-results.html">Find Blood</a>
-      <a href="donor.html" class="active">Become a Donor</a>
-      <a href="bloodbank.html">Blood Bank Login</a>
+      <a href="donor.html">Become a Donor</a>
+      <a href="bloodbank.html" class="active">Blood Bank Login</a>
     </div>
     <div class="nav-cta">
       <a href="search-results.html" class="btn btn-outline btn-sm">Find Blood</a>
@@ -34,38 +34,28 @@
 
 <header class="page-hero">
   <div class="container">
-    <span class="eyebrow">❤️ Donor Portal</span>
-    <h1>Your blood can save a life today</h1>
-    <p>Register once, control your availability, and get matched whenever someone nearby needs your blood group.</p>
+    <span class="eyebrow">🏥 Blood Bank Portal</span>
+    <h1>Keep your stock live for everyone searching</h1>
+    <p>Register your blood bank, update unit counts per blood group, and help LifeDrop match seekers accurately.</p>
   </div>
 </header>
 
 <div class="container">
 
-  <div class="form-card" id="authCard">
+  <div class="form-card wide" id="authCard">
     <div class="tab-switch">
-      <button type="button" id="tabSignup" class="active">Sign Up</button>
+      <button type="button" id="tabSignup" class="active">Register Bank</button>
       <button type="button" id="tabLogin">Login</button>
     </div>
 
     <div class="tab-panel active" id="panelSignup">
-      <h2>Create your donor profile</h2>
-      <p class="form-sub">Takes less than a minute. Your details stay protected.</p>
+      <h2>Register your blood bank</h2>
+      <p class="form-sub">Set up your account and starting stock counts.</p>
       <form id="signupForm">
-        <div class="form-group">
-          <label for="suName">Full Name</label>
-          <input type="text" id="suName" placeholder="e.g. Rohit Sharma" required />
-        </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="suBloodGroup">Blood Group</label>
-            <select id="suBloodGroup" required>
-              <option value="">Select</option>
-              <option>A+</option><option>A-</option>
-              <option>B+</option><option>B-</option>
-              <option>O+</option><option>O-</option>
-              <option>AB+</option><option>AB-</option>
-            </select>
+            <label for="suName">Blood Bank Name</label>
+            <input type="text" id="suName" placeholder="e.g. Jaipur City Blood Bank" required />
           </div>
           <div class="form-group">
             <label for="suCity">City</label>
@@ -80,31 +70,25 @@
         <div class="form-row">
           <div class="form-group">
             <label for="suContact">Contact Number</label>
-            <input type="tel" id="suContact" placeholder="98XXXXXXXX" pattern="[0-9]{10}" required />
+            <input type="text" id="suContact" placeholder="0141-XXXXXXX" required />
           </div>
           <div class="form-group">
-            <label for="suLastDonation">Last Donation Date</label>
-            <input type="date" id="suLastDonation" />
-            <div class="hint">Leave blank if you've never donated.</div>
+            <label for="suPassword">Password</label>
+            <input type="password" id="suPassword" placeholder="Create a password" required minlength="6" />
           </div>
         </div>
-        <div class="form-group">
-          <label for="suPassword">Password</label>
-          <input type="password" id="suPassword" placeholder="Create a password" required minlength="6" />
-          <div class="hint">Min 6 characters.</div>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Create My Donor Profile</button>
+        <button type="submit" class="btn btn-primary btn-block">Register Blood Bank</button>
       </form>
       <div class="form-footer-link">Already registered? <a href="#" id="goToLogin">Login here</a></div>
     </div>
 
     <div class="tab-panel" id="panelLogin">
-      <h2>Welcome back, donor</h2>
-      <p class="form-sub">Login to manage your availability.</p>
+      <h2>Welcome back</h2>
+      <p class="form-sub">Login to manage your live stock.</p>
       <form id="loginForm">
         <div class="form-group">
           <label for="liContact">Contact Number</label>
-          <input type="tel" id="liContact" placeholder="98XXXXXXXX" required />
+          <input type="text" id="liContact" placeholder="0141-XXXXXXX" required />
         </div>
         <div class="form-group">
           <label for="liPassword">Password</label>
@@ -112,7 +96,7 @@
         </div>
         <button type="submit" class="btn btn-primary btn-block">Login</button>
       </form>
-      <div class="form-footer-link">New donor? <a href="#" id="goToSignup">Create a profile</a></div>
+      <div class="form-footer-link">New blood bank? <a href="#" id="goToSignup">Register here</a></div>
     </div>
   </div>
 
@@ -121,10 +105,10 @@
       <div class="dash-profile">
         <div class="dash-avatar" id="dashAvatar">--</div>
         <div class="name" id="dashName">—</div>
-        <div class="role">Blood Donor</div>
+        <div class="role">Blood Bank</div>
       </div>
       <nav class="dash-menu">
-        <a href="#" class="active">📋 My Profile</a>
+        <a href="#" class="active">📦 Stock Dashboard</a>
         <a href="search-results.html">🔍 Find Blood</a>
         <a href="#" id="logoutBtn">🚪 Logout</a>
       </nav>
@@ -133,35 +117,26 @@
     <main>
       <div class="dash-stats-row">
         <div class="stat-card">
-          <div class="stat-top"><span>🩸</span></div>
-          <div class="stat-value" id="dashGroup">—</div>
-          <div class="stat-name">Blood Group</div>
+          <div class="stat-top"><span>📦</span></div>
+          <div class="stat-value" id="dashTotalUnits">—</div>
+          <div class="stat-name">Total Units in Stock</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-top"><span>⚠️</span></div>
+          <div class="stat-value" id="dashLowGroups">—</div>
+          <div class="stat-name">Low / Out-of-Stock Groups</div>
         </div>
         <div class="stat-card">
           <div class="stat-top"><span>📍</span></div>
           <div class="stat-value" id="dashCity">—</div>
           <div class="stat-name">City</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-top"><span>📅</span></div>
-          <div class="stat-value" id="dashLastDonation">—</div>
-          <div class="stat-name">Last Donation</div>
-        </div>
       </div>
 
       <div class="card">
-        <h3 class="mb-2">Availability</h3>
-        <div class="toggle-row">
-          <div>
-            <div class="toggle-label">I am available to donate</div>
-            <div class="toggle-sub" id="eligibilityNote">This updates instantly for anyone searching.</div>
-          </div>
-          <label class="switch">
-            <input type="checkbox" id="availabilityToggle" />
-            <span class="slider-toggle"></span>
-          </label>
-        </div>
-        <p class="hint">Note: You can't mark yourself available if your last donation was less than 3 months ago.</p>
+        <h3 class="mb-2">Live Stock — Update Units</h3>
+        <p class="hint mb-2">Changes reflect immediately for everyone searching on LifeDrop.</p>
+        <div class="stock-grid" id="stockGrid"></div>
       </div>
     </main>
   </div>
@@ -175,6 +150,6 @@
 
 <script src="js/data.js"></script>
 <script src="js/main.js"></script>
-<script src="js/donor.js"></script>
+<script src="js/bloodbank.js"></script>
 </body>
 </html>

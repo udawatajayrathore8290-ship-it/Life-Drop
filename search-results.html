@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Find Blood — LifeDrop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="drop">🩸</span> LifeDrop</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="search-results.html" class="active">Find Blood</a>
+      <a href="donor.html">Become a Donor</a>
+      <a href="bloodbank.html">Blood Bank Login</a>
+    </div>
+    <div class="nav-cta">
+      <a href="donor.html" class="btn btn-outline btn-sm">Become a Donor</a>
+      <a href="bloodbank.html" class="btn btn-primary btn-sm">Blood Bank Login</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="search-results.html">Find Blood</a>
+    <a href="donor.html">Become a Donor</a>
+    <a href="bloodbank.html">Blood Bank Login</a>
+  </div>
+</nav>
+
+<header class="page-hero" style="padding-bottom:120px;">
+  <div class="container">
+    <span class="eyebrow">🔍 Search</span>
+    <h1>Find blood near you, right now</h1>
+    <p>Search live donor &amp; blood bank data by blood group, city, and urgency level.</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="search-bar-card">
+    <form id="searchForm">
+      <div class="search-grid">
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="bloodGroup">Blood Group</label>
+          <select id="bloodGroup">
+            <option value="">Any Group</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>O+</option><option>O-</option>
+            <option>AB+</option><option>AB-</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="city">City</label>
+          <select id="city">
+            <option value="">Any City</option>
+            <option>Jaipur</option>
+            <option>Ajmer</option>
+            <option>Kota</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="urgency">Urgency</label>
+          <select id="urgency">
+            <option value="normal">Normal</option>
+            <option value="emergency">Emergency</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">🔍 Search</button>
+      </div>
+      <div class="emergency-toggle">
+        <label class="switch">
+          <input type="checkbox" id="emergencyToggle" />
+          <span class="slider-toggle"></span>
+        </label>
+        <div>
+          <div class="emergency-toggle-label">Emergency Mode</div>
+          <div class="hint">Shows expanded results — including donors who are currently marked unavailable.</div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <section class="section">
+    <div class="results-meta">
+      <div class="results-count" id="resultsCount">Showing all donors &amp; blood banks</div>
+      <div class="filter-chip-row" id="activeFilters"></div>
+    </div>
+    <h3 class="mb-2" style="color: var(--gray-700); font-size:1.05rem;">🏥 Blood Banks</h3>
+    <div id="bankResults"></div>
+    <h3 class="mb-2 mt-3" style="color: var(--gray-700); font-size:1.05rem;">🧑‍🤝‍🧑 Donors</h3>
+    <div id="donorResults"></div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">&copy; 2026 LifeDrop. Built by Ajay Pratap Singh Rathore as a placement project.</div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/search.js"></script>
+</body>
+</html>
