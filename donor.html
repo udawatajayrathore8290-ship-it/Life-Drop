@@ -39,6 +39,50 @@
     <p>Register once, control your availability, and get matched whenever someone nearby needs your blood group.</p>
   </div>
 </header>
+<!-- Signup Success Popup -->
+<div class="popup-overlay" id="signupPopup">
+  <div class="popup-box">
+    <div class="popup-icon">🎉</div>
+    <div class="popup-title" id="signupPopupName">Welcome!</div>
+    <div class="popup-msg">Your donor profile has been created successfully. You are now part of the LifeDrop network!</div>
+    <div class="popup-btns">
+      <button class="btn btn-primary" id="signupPopupBtn">Go to Dashboard</button>
+    </div>
+  </div>
+</div>
+
+<!-- Logout Confirmation Popup -->
+<div class="popup-overlay" id="logoutPopup">
+  <div class="popup-box">
+    <div class="popup-icon">🚪</div>
+    <div class="popup-title">Logout?</div>
+    <div class="popup-msg">Are you sure you want to logout from your donor account?</div>
+    <div class="popup-btns">
+      <button class="btn btn-outline" id="logoutCancelBtn">Cancel</button>
+      <button class="btn btn-primary" id="logoutConfirmBtn">Yes, Logout</button>
+    </div>
+  </div>
+</div>
+
+<!-- Availability Toggle Confirmation Popup -->
+<!-- Eligibility Countdown Card -->
+<div class="card mb-2" id="eligibilityCard" style="display:none;">
+  <div style="display:flex; align-items:center; gap:16px;">
+    <div class="icon-circle" style="margin-bottom:0; flex-shrink:0;">⏳</div>
+    <div>
+      <div style="font-weight:600; font-size:0.95rem;">Not Eligible Yet</div>
+      <div style="color:var(--amber-600); font-weight:700; font-size:1.1rem; margin:4px 0;" id="daysRemaining">— days remaining</div>
+      <div style="font-size:0.82rem; color:var(--gray-500);">Next eligible date: <span id="nextEligibleDate">—</span></div>
+    </div>
+  </div>
+  <div style="margin-top:16px; background:var(--gray-100); border-radius:999px; height:8px; overflow:hidden;">
+    <div id="eligibilityBar" style="height:100%; background:var(--gradient-primary); border-radius:999px; transition:width 0.5s ease; width:0%;"></div>
+  </div>
+  <div style="display:flex; justify-content:space-between; margin-top:6px;">
+    <span style="font-size:0.75rem; color:var(--gray-500);">Last Donation</span>
+    <span style="font-size:0.75rem; color:var(--gray-500);">Eligible after 3 months</span>
+  </div>
+</div>
 
 <div class="container">
 
@@ -131,39 +175,129 @@
     </aside>
 
     <main>
-      <div class="dash-stats-row">
-        <div class="stat-card">
-          <div class="stat-top"><span>🩸</span></div>
-          <div class="stat-value" id="dashGroup">—</div>
-          <div class="stat-name">Blood Group</div>
+     <!-- TABS -->
+  <div class="tab-switch" style="max-width:400px; margin-bottom:24px;">
+    <button type="button" id="tabProfile" class="active">👤 My Profile</button>
+    <button type="button" id="tabAvail">❤️ Availability</button>
+  </div>
+
+  <!-- PROFILE PANEL -->
+  <div id="panelProfile" class="tab-panel active">
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
+        <h3>My Profile</h3>
+        <button class="btn btn-outline btn-sm" id="editProfileBtn">✏️ Edit Profile</button>
+      </div>
+
+      <!-- VIEW MODE -->
+      <div id="profileView">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <div class="profile-val" id="viewName">—</div>
+          </div>
+          <div class="form-group">
+            <label>Blood Group</label>
+            <div class="profile-val" id="viewBloodGroup">—</div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-top"><span>📍</span></div>
-          <div class="stat-value" id="dashCity">—</div>
-          <div class="stat-name">City</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>City</label>
+            <div class="profile-val" id="viewCity">—</div>
+          </div>
+          <div class="form-group">
+            <label>Contact</label>
+            <div class="profile-val" id="viewContact">—</div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-top"><span>📅</span></div>
-          <div class="stat-value" id="dashLastDonation">—</div>
-          <div class="stat-name">Last Donation</div>
+        <div class="form-group">
+          <label>Last Donation Date</label>
+          <div class="profile-val" id="viewLastDonation">—</div>
         </div>
       </div>
 
-      <div class="card">
-        <h3 class="mb-2">Availability</h3>
-        <div class="toggle-row">
-          <div>
-            <div class="toggle-label">I am available to donate</div>
-            <div class="toggle-sub" id="eligibilityNote">This updates instantly for anyone searching.</div>
+      <!-- EDIT MODE -->
+      <div id="profileEdit" style="display:none;">
+        <form id="editProfileForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="editName">Full Name</label>
+              <input type="text" id="editName" required />
+            </div>
+            <div class="form-group">
+              <label for="editBloodGroup">Blood Group</label>
+              <select id="editBloodGroup" required>
+                <option>A+</option><option>A-</option>
+                <option>B+</option><option>B-</option>
+                <option>O+</option><option>O-</option>
+                <option>AB+</option><option>AB-</option>
+              </select>
+            </div>
           </div>
-          <label class="switch">
-            <input type="checkbox" id="availabilityToggle" />
-            <span class="slider-toggle"></span>
-          </label>
-        </div>
-        <p class="hint">Note: You can't mark yourself available if your last donation was less than 3 months ago.</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="editCity">City</label>
+              <select id="editCity" required>
+                <option>Jaipur</option>
+                <option>Ajmer</option>
+                <option>Kota</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="editContact">Contact</label>
+              <input type="tel" id="editContact" pattern="[0-9]{10}" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="editLastDonation">Last Donation Date</label>
+            <input type="date" id="editLastDonation" />
+          </div>
+          <div class="flex gap-2">
+            <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+            <button type="button" class="btn btn-outline" id="cancelEditBtn">Cancel</button>
+          </div>
+        </form>
       </div>
-    </main>
+    </div>
+  </div>
+
+  <!-- AVAILABILITY PANEL -->
+  <div id="panelAvail" class="tab-panel">
+    <div class="dash-stats-row">
+      <div class="stat-card">
+        <div class="stat-top"><span>🩸</span></div>
+        <div class="stat-value" id="dashGroup">—</div>
+        <div class="stat-name">Blood Group</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top"><span>📍</span></div>
+        <div class="stat-value" id="dashCity">—</div>
+        <div class="stat-name">City</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top"><span>📅</span></div>
+        <div class="stat-value" id="dashLastDonation">—</div>
+        <div class="stat-name">Last Donation</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="mb-2">Availability</h3>
+      <div class="toggle-row">
+        <div>
+          <div class="toggle-label">I am available to donate</div>
+          <div class="toggle-sub" id="eligibilityNote">This updates instantly for anyone searching.</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="availabilityToggle" />
+          <span class="slider-toggle"></span>
+        </label>
+      </div>
+      <p class="hint">Note: You can't mark yourself available if your last donation was less than 3 months ago.</p>
+    </div>
+  </div>
+</main>
   </div>
 </div>
 

@@ -36,21 +36,38 @@
 
 <header class="page-hero">
   <div class="container">
-    <span class="eyebrow">🩸 Real-time Blood Donor Network</span>
-    <h1>Connecting blood seekers with donors &amp; blood banks — instantly.</h1>
-    <p>LifeDrop links people who urgently need blood with nearby donors and blood banks, with live stock data and emergency mode for critical situations.</p>
-    <div class="flex gap-2 mt-3" style="flex-wrap:wrap;">
-      <a href="search-results.html" class="btn btn-light">🔍 Find Blood Now</a>
-      <a href="donor.html" class="btn btn-outline" style="border-color:#fff; color:#fff;">Become a Donor</a>
-    </div>
-    <div class="hero-stats">
-      <div><div class="stat-num" id="stat-donors">—</div><div class="stat-label">Registered Donors</div></div>
-      <div><div class="stat-num" id="stat-banks">—</div><div class="stat-label">Partner Blood Banks</div></div>
-      <div><div class="stat-num">8</div><div class="stat-label">Blood Groups Tracked</div></div>
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+      
+      <!-- LEFT SIDE — Text -->
+      <div style="flex:1; min-width:280px;">
+        <span class="eyebrow">🩸 Real-time Blood Donor Network</span>
+        <h1>Connecting blood seekers with donors &amp; blood banks — instantly.</h1>
+        <p>LifeDrop links people who urgently need blood with nearby donors and blood banks, with live stock data and emergency mode for critical situations.</p>
+        <div class="flex gap-2 mt-3" style="flex-wrap:wrap;">
+          <a href="search-results.html" class="btn btn-light">🔍 Find Blood Now</a>
+          <a href="donor.html" class="btn btn-outline" style="border-color:#fff; color:#fff;">Become a Donor</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="stat-num" id="stat-donors">—</div><div class="stat-label">Registered Donors</div></div>
+          <div><div class="stat-num" id="stat-banks">—</div><div class="stat-label">Partner Blood Banks</div></div>
+          <div><div class="stat-num">8</div><div class="stat-label">Blood Groups Tracked</div></div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE — Image -->
+      <div style="flex:0 0 auto; text-align:center;">
+        <img src="Ajay.png" alt="LifeDrop"
+          style="width:220px; height:220px; border-radius:50%; object-fit:cover; border:4px solid rgba(255,255,255,0.3); box-shadow: 0 8px 32px rgba(0,0,0,0.2);" />
+          <div style="flex:0 0 auto; text-align:center; width:100%;"></div>
+        <div style="margin-top:12px; font-weight:600; font-size:1rem; opacity:0.9;">Ajay Pratap Singh</div>
+        <div style="font-size:0.82rem; opacity:0.75;">Project Developer</div>
+        <!-- RIGHT SIDE — Image -->
+        
+      </div>
+
     </div>
   </div>
 </header>
-
 <section class="section">
   <div class="container">
     <div class="section-head">
@@ -146,7 +163,7 @@
         <h4>Project</h4>
         <ul>
           <li>Frontend: HTML, CSS, JS</li>
-          <li>Backend (in progress): Node.js, Express, MongoDB</li>
+          <li>Backend: Node.js, Express, MySQL</li>
         </ul>
       </div>
     </div>

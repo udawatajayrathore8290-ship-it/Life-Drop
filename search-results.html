@@ -87,14 +87,24 @@
   </div>
 
   <section class="section">
-    <div class="results-meta">
-      <div class="results-count" id="resultsCount">Showing all donors &amp; blood banks</div>
-      <div class="filter-chip-row" id="activeFilters"></div>
-    </div>
-    <h3 class="mb-2" style="color: var(--gray-700); font-size:1.05rem;">🏥 Blood Banks</h3>
-    <div id="bankResults"></div>
-    <h3 class="mb-2 mt-3" style="color: var(--gray-700); font-size:1.05rem;">🧑‍🤝‍🧑 Donors</h3>
-    <div id="donorResults"></div>
+    <!-- Stats Summary -->
+<div class="grid-3 mb-2" id="statsSummary" style="display:none;">
+  <div class="stat-card">
+    <div class="stat-top"><span>🧑‍🤝‍🧑</span></div>
+    <div class="stat-value" id="statTotal">0</div>
+    <div class="stat-name">Total Donors Found</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-top"><span>✅</span></div>
+    <div class="stat-value" id="statAvailable">0</div>
+    <div class="stat-name">Available Now</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-top"><span>⏳</span></div>
+    <div class="stat-value" id="statNotEligible">0</div>
+    <div class="stat-name">Not Eligible Yet</div>
+  </div>
+</div>
   </section>
 </div>
 
