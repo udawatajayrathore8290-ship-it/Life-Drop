@@ -2,7 +2,7 @@
    LifeDrop — search.js (Backend connected)
    =========================================================== */
 
-const API = 'http://localhost:5000/api';
+const API = 'https://life-drop.onrender.com/api';
 
 const form = document.getElementById("searchForm");
 const bankResults = document.getElementById("bankResults");

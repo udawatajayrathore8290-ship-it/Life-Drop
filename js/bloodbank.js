@@ -2,7 +2,7 @@
    LifeDrop — bloodbank.js (Backend connected)
    =========================================================== */
 
-const API = 'http://localhost:5000/api';
+const API = 'https://life-drop.onrender.com/api';
 
 const tabSignup = document.getElementById("tabSignup");
 const tabLogin = document.getElementById("tabLogin");
